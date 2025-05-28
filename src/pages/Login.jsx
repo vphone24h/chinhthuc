@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import * as jwt_decode from "jwt-decode";
+import jwt_decode from "jwt-decode";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -29,9 +29,15 @@ function Login() {
 
       if (res.ok) {
         alert("✅ Đăng nhập thành công");
-        localStorage.setItem("token", data.token);
 
-       const decoded = jwt_decode(data.token);
+        if (remember) {
+          localStorage.setItem("token", data.token);
+        } else {
+          sessionStorage.setItem("token", data.token);
+        }
+
+        const decoded = jwt_decode(data.token);
+        // console.log(decoded);
 
         navigate("/nhap-hang");
       } else {
@@ -197,4 +203,3 @@ function Login() {
 }
 
 export default Login;
-
