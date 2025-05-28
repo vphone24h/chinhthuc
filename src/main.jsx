@@ -1,8 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import 'milligram/dist/milligram.min.css'; // Thêm dòng này để dùng Milligram
-// import './index.css'; // Có thể xóa/comment nếu KHÔNG dùng Tailwind hoặc custom css
+import './index.css'; // Import CSS của bạn
+// import 'milligram/dist/milligram.min.css'; // Bỏ dòng này nếu bạn không dùng Milligram
 import App from './App';
 
 createRoot(document.getElementById('root')).render(

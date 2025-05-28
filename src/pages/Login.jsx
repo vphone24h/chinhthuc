@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import jwt_decode from "jwt-decode";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -36,8 +35,7 @@ function Login() {
           sessionStorage.setItem("token", data.token);
         }
 
-        const decoded = jwt_decode(data.token);
-        // console.log(decoded);
+        // Bỏ đoạn giải mã token jwt_decode
 
         navigate("/nhap-hang");
       } else {
