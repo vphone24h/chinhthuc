@@ -1,5 +1,10 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+    {
+      "source": "/api/:path*",
+      "destination": "https://chinhthucbackend-1.onrender.com/api/:path*"
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
