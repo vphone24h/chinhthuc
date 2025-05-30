@@ -42,7 +42,7 @@ function NhapHang() {
   const itemsPerPage = 20;
   const [editingItemId, setEditingItemId] = useState(null);
 
-  const inputClass = "w-full border p-2 rounded h-10";
+  const inputClass = "w-full border border-blue-300 p-2 rounded h-10 focus:outline-none focus:ring-2 focus:ring-blue-500";
 
   const fetchItems = async () => {
     try {
@@ -287,19 +287,39 @@ function NhapHang() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-6 bg-white rounded-xl shadow mt-10 relative">
+    <div className="max-w-5xl mx-auto p-6 bg-blue-50 rounded-xl shadow mt-10 relative">
       {/* Modal branch */}
       {showBranchModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-20 z-50">
           <div className="bg-white p-6 rounded shadow-md min-w-[300px]">
-            <h3 className="mb-2 font-bold">{editBranchId ? 'Sửa chi nhánh' : 'Thêm chi nhánh'}</h3>
-            <input type="text" className="border p-2 rounded w-full mb-4" value={branchInput} onChange={e => setBranchInput(e.target.value)} />
+            <h3 className="mb-2 font-bold text-blue-700">{editBranchId ? 'Sửa chi nhánh' : 'Thêm chi nhánh'}</h3>
+            <input
+              type="text"
+              className="border border-blue-300 p-2 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={branchInput}
+              onChange={e => setBranchInput(e.target.value)}
+            />
             <div className="flex gap-2 justify-end">
-              <button onClick={() => setShowBranchModal(false)} className="px-3 py-1 bg-gray-200 rounded">Huỷ</button>
+              <button
+                onClick={() => setShowBranchModal(false)}
+                className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+              >
+                Huỷ
+              </button>
               {editBranchId ? (
-                <button onClick={handleEditBranch} className="px-3 py-1 bg-blue-500 text-white rounded">Lưu</button>
+                <button
+                  onClick={handleEditBranch}
+                  className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+                >
+                  Lưu
+                </button>
               ) : (
-                <button onClick={handleAddBranch} className="px-3 py-1 bg-green-600 text-white rounded">Thêm</button>
+                <button
+                  onClick={handleAddBranch}
+                  className="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700"
+                >
+                  Thêm
+                </button>
               )}
             </div>
           </div>
@@ -310,14 +330,34 @@ function NhapHang() {
       {showCategoryModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-20 z-50">
           <div className="bg-white p-6 rounded shadow-md min-w-[300px]">
-            <h3 className="mb-2 font-bold">{editCategoryId ? 'Sửa thư mục' : 'Thêm thư mục'}</h3>
-            <input type="text" className="border p-2 rounded w-full mb-4" value={categoryInput} onChange={e => setCategoryInput(e.target.value)} />
+            <h3 className="mb-2 font-bold text-blue-700">{editCategoryId ? 'Sửa thư mục' : 'Thêm thư mục'}</h3>
+            <input
+              type="text"
+              className="border border-blue-300 p-2 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={categoryInput}
+              onChange={e => setCategoryInput(e.target.value)}
+            />
             <div className="flex gap-2 justify-end">
-              <button onClick={() => setShowCategoryModal(false)} className="px-3 py-1 bg-gray-200 rounded">Huỷ</button>
+              <button
+                onClick={() => setShowCategoryModal(false)}
+                className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+              >
+                Huỷ
+              </button>
               {editCategoryId ? (
-                <button onClick={handleEditCategory} className="px-3 py-1 bg-blue-500 text-white rounded">Lưu</button>
+                <button
+                  onClick={handleEditCategory}
+                  className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+                >
+                  Lưu
+                </button>
               ) : (
-                <button onClick={handleAddCategory} className="px-3 py-1 bg-green-600 text-white rounded">Thêm</button>
+                <button
+                  onClick={handleAddCategory}
+                  className="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700"
+                >
+                  Thêm
+                </button>
               )}
             </div>
           </div>
@@ -329,29 +369,65 @@ function NhapHang() {
       </div>
 
       <div className="flex justify-center space-x-2 mb-6">
-        <button onClick={() => (window.location.href = "/nhap-hang")} className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">📥 Nhập hàng</button>
-        <button onClick={() => (window.location.href = "/xuat-hang")} className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">📤 Xuất hàng</button>
-        <button onClick={() => (window.location.href = "/ton-kho-so-luong")} className="bg-yellow-600 text-white px-3 py-1 rounded hover:bg-yellow-700">📦 Tồn kho</button>
-        <button onClick={() => (window.location.href = "/bao-cao")} className="bg-purple-600 text-white px-3 py-1 rounded hover:bg-purple-700">📋 Báo cáo</button>
+        <button
+          onClick={() => (window.location.href = "/nhap-hang")}
+          className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
+        >
+          📥 Nhập hàng
+        </button>
+        <button
+          onClick={() => (window.location.href = "/xuat-hang")}
+          className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
+        >
+          📤 Xuất hàng
+        </button>
+        <button
+          onClick={() => (window.location.href = "/ton-kho-so-luong")}
+          className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
+        >
+          📦 Tồn kho
+        </button>
+        <button
+          onClick={() => (window.location.href = "/bao-cao")}
+          className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
+        >
+          📋 Báo cáo
+        </button>
       </div>
 
-      <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">Nhập hàng iPhone</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center text-blue-700">Nhập hàng iPhone</h2>
 
       {/* ---- BỘ LỌC --- */}
       <div className="flex gap-4 mb-4">
-        <input type="date" value={filterDate} onChange={(e) => setFilterDate(e.target.value)} className="border p-2 rounded w-40" placeholder="Ngày nhập" />
-        {/* filterBranch dropdown */}
-        <select value={filterBranch} onChange={(e) => setFilterBranch(e.target.value)} className="border p-2 rounded w-40">
+        <input
+          type="date"
+          value={filterDate}
+          onChange={(e) => setFilterDate(e.target.value)}
+          className="border border-blue-300 p-2 rounded w-40 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Ngày nhập"
+        />
+        <select
+          value={filterBranch}
+          onChange={(e) => setFilterBranch(e.target.value)}
+          className="border border-blue-300 p-2 rounded w-40 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
           <option value="">Chi nhánh</option>
-          {branches.map(b => (
-            <option key={b._id} value={b.name}>{b.name}</option>
+          {branches.map((b) => (
+            <option key={b._id} value={b.name}>
+              {b.name}
+            </option>
           ))}
         </select>
-        {/* filterCategory dropdown */}
-        <select value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)} className="border p-2 rounded w-40">
+        <select
+          value={filterCategory}
+          onChange={(e) => setFilterCategory(e.target.value)}
+          className="border border-blue-300 p-2 rounded w-40 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
           <option value="">Thư mục</option>
-          {categories.map(c => (
-            <option key={c._id} value={c.name}>{c.name}</option>
+          {categories.map((c) => (
+            <option key={c._id} value={c.name}>
+              {c.name}
+            </option>
           ))}
         </select>
       </div>
@@ -361,7 +437,10 @@ function NhapHang() {
           📤 Nhập từ Excel
           <input type="file" accept=".xlsx,.xls" onChange={importFromExcel} hidden />
         </label>
-        <button onClick={exportToExcel} className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+        <button
+          onClick={exportToExcel}
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
           ⬇️ Xuất Excel
         </button>
       </div>
@@ -485,39 +564,39 @@ function NhapHang() {
       {message && <p className="mt-4 text-center font-semibold text-green-600">{message}</p>}
 
       <div className="mt-10">
-        <input type="text" placeholder="🔍 Tìm kiếm IMEI, Tên, SKU..." value={search} onChange={(e) => setSearch(e.target.value)} className="border px-4 py-2 rounded w-full mb-4" />
+        <input type="text" placeholder="🔍 Tìm kiếm IMEI, Tên, SKU..." value={search} onChange={(e) => setSearch(e.target.value)} className="border border-blue-300 px-4 py-2 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500" />
         <table className="w-full border text-sm">
           <thead>
-            <tr className="bg-gray-100">
-              <th className="border p-2">IMEI</th>
-              <th className="border p-2">Tên sản phẩm</th>
-              <th className="border p-2">SKU</th>
-              <th className="border p-2 text-center">Giá nhập</th>
-              <th className="border p-2">Ngày nhập</th>
-              <th className="border p-2">Số lượng</th>
-              <th className="border p-2">Thư mục</th>
-              <th className="border p-2">Nhà cung cấp</th>
-              <th className="border p-2">Chi nhánh</th>
-              <th className="border p-2">Ghi chú</th>
-              <th className="border p-2 text-center">Thao tác</th>
+            <tr className="bg-blue-100">
+              <th className="border border-blue-300 p-2">IMEI</th>
+              <th className="border border-blue-300 p-2">Tên sản phẩm</th>
+              <th className="border border-blue-300 p-2">SKU</th>
+              <th className="border border-blue-300 p-2 text-center">Giá nhập</th>
+              <th className="border border-blue-300 p-2">Ngày nhập</th>
+              <th className="border border-blue-300 p-2">Số lượng</th>
+              <th className="border border-blue-300 p-2">Thư mục</th>
+              <th className="border border-blue-300 p-2">Nhà cung cấp</th>
+              <th className="border border-blue-300 p-2">Chi nhánh</th>
+              <th className="border border-blue-300 p-2">Ghi chú</th>
+              <th className="border border-blue-300 p-2 text-center">Thao tác</th>
             </tr>
           </thead>
           <tbody>
             {paginatedItems.map((item) => (
               <tr key={item._id}>
-                <td className="border p-2">{item.imei}</td>
-                <td className="border p-2">{item.product_name || item.tenSanPham}</td>
-                <td className="border p-2">{item.sku}</td>
-                <td className="border p-2 text-center">{item.price_import?.toLocaleString()}đ</td>
-                <td className="border p-2">{item.import_date?.slice(0, 10)}</td>
-                <td className="border p-2">{item.quantity}</td>
-                <td className="border p-2">{item.category}</td>
-                <td className="border p-2">{item.supplier}</td>
-                <td className="border p-2">{item.branch}</td>
-                <td className="border p-2">{item.note}</td>
-                <td className="border p-2 text-center space-x-1">
-                  <button onClick={() => handleEdit(item)} className="bg-yellow-400 text-white px-2 py-1 rounded">✏️</button>
-                  <button onClick={() => handleDelete(item._id)} className="bg-red-600 text-white px-2 py-1 rounded">🗑️</button>
+                <td className="border border-blue-300 p-2">{item.imei}</td>
+                <td className="border border-blue-300 p-2">{item.product_name || item.tenSanPham}</td>
+                <td className="border border-blue-300 p-2">{item.sku}</td>
+                <td className="border border-blue-300 p-2 text-center">{item.price_import?.toLocaleString()}đ</td>
+                <td className="border border-blue-300 p-2">{item.import_date?.slice(0, 10)}</td>
+                <td className="border border-blue-300 p-2">{item.quantity}</td>
+                <td className="border border-blue-300 p-2">{item.category}</td>
+                <td className="border border-blue-300 p-2">{item.supplier}</td>
+                <td className="border border-blue-300 p-2">{item.branch}</td>
+                <td className="border border-blue-300 p-2">{item.note}</td>
+                <td className="border border-blue-300 p-2 text-center space-x-1">
+                  <button onClick={() => handleEdit(item)} className="bg-yellow-400 text-white px-2 py-1 rounded hover:bg-yellow-500">✏️</button>
+                  <button onClick={() => handleDelete(item._id)} className="bg-red-600 text-white px-2 py-1 rounded hover:bg-red-700">🗑️</button>
                 </td>
               </tr>
             ))}
